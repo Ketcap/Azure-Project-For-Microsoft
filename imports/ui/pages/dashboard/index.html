@@ -1,0 +1,73 @@
+<template name="dashboard">
+	{{#if equals page 'root'}}
+		{{#if folders}}
+		<div class="row container">
+			<div class="col s12" style="background-color:#05668D; height:64px; line-height: 64px; margin-bottom:.5em;">
+				{{#each breadcrumb}}
+				<a href="#children" class="breadcrumb">{{name}}</a>
+				{{/each}}
+			</div>
+			<form class="row" id="firstForm">
+				<div class="col s12">
+					{{#each folders.items}}
+					{{#unless equals kind "drive#childReference"}}
+					{{#unless fileExtension}}
+					<div class="col s4">
+						<div class="card-panel teal">
+							<input name="folders" type="radio" id={{id}}  />
+							<label for={{id}} class="white-text">{{title}}</label>
+							<a href="#children" class="white-text"><i class="material-icons right">folder_open</i></a>
+						</div>
+					</div>
+					{{/unless}}
+					{{/unless}}
+					{{#if equals kind "drive#childReference"}}
+					<div class="col s4">
+						<img src="{{contentPhoto id}}" alt="" class="responsive-img">
+					</div>
+					{{/if}}
+					{{/each}}
+				</div>
+				<div class="row right-align">
+					<button class="btn waves-effect waves-light" type="submit" name="action">Klasor Seç ve Fotoğraf Seçimine Devam Et
+						<i class="material-icons right">send</i>
+					</button>
+				</div>
+			</form>
+		</div>
+		{{else}}
+		<div class="row container">
+			<div class="col s8 offset-m2">
+				<div class="progress">
+					<div class="indeterminate"></div>
+				</div>
+			</div>
+		</div>
+		{{/if}}
+	{{/if}}
+	{{#if equals page 'photo'}}
+	<div class="row container">
+		<form class="row col s12  valign-wrapper" id="lastForm">
+			<div class="input-field col s6">
+				<input id="image_link" type="text" class="validate active" value="https://scontent.fsaw1-4.fna.fbcdn.net/v/t1.0-9/11923612_10153565472054231_7532479119878918069_n.jpg?oh=084c87de96ebd0869ece23bd602a32d8&oe=599F2B8C">
+				<label for="image_link" class="active">Fotoğraf Linki</label>
+			</div>
+			<div class="col s6 right-align">
+				<button class="btn waves-effect waves-light" type="submit" name="action">Devam Et
+					<i class="material-icons right">send</i>
+				</button>
+			</div>
+		</form>
+	</div>
+	{{/if}}
+	{{#if equals page 'finish'}}
+	<div class="container row">
+		<h5>İçinde bulunduğunuz Fotoğraflar</h5>
+		{{#each similiarFaces}}
+		<div class="col s6">
+			<img src="{{url}}" alt="" class="responsive-img">
+		</div>
+		{{/each}}
+		</div>
+	{{/if}}
+</template>

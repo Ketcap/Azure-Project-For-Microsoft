@@ -1,0 +1,24 @@
+/* CSS declarations go here */
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: #efefef;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+[type="radio"]:not(:checked) + label:before, [type="radio"]:not(:checked) + label:after{
+	border: 2px solid #efefef;
+}
+[type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after
+{
+	border:2px solid #fff;
+}
+
+[type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after{
+	background-color: #fff;
+}

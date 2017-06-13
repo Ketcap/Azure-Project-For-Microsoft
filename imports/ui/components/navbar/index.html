@@ -1,0 +1,12 @@
+<template name="navbar">
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">Azure Project</a>
+      <ul class="right">
+        {{#if currentUser}}
+        <li><a href="#logout">Logout</a></li>
+        {{/if}}
+      </ul>
+    </div>
+  </nav>
+</template>
