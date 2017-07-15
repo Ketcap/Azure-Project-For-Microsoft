@@ -1,0 +1,9 @@
+{
+  "public":{
+    "client_id":"14e298a8-ebb2-442d-9d67-cf7e55b41dea",
+    "client_secret":"Z85s0AZTfbUDZLLDzhWB8u8"
+  },
+	"private":{
+		"azure_key":"9d186c74ed244580b541fe84b5de8978"
+	}
+}
